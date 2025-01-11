@@ -16,6 +16,8 @@ import net.dv8tion.jda.api.managers.Presence
     permission = Permission.ADMINISTRATOR)
 class PresenceCommand : CommandModule {
 
+    override fun persistRegistration(): Boolean = true
+
     override fun execute(event: SlashCommandInteractionEvent) {
         val status: OnlineStatus? = Util.getEnumByName(
             OnlineStatus::class.java,

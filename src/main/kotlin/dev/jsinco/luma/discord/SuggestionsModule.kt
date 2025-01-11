@@ -21,6 +21,8 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData
 )
 class SuggestionsModule : Module {
 
+    override fun persistRegistration(): Boolean = true
+
     override fun execute(event: SlashCommandInteractionEvent) {
         val suggestion = event.getOption("suggestion")?.asString ?: return
         sendSuggestionEmbed(event.user, suggestion)
